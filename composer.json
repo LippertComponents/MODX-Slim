@@ -1,0 +1,17 @@
+{
+  "name": "my/modx-slim",
+  "description": "This project aims to be an example/bootstrap for using Slim along side MODX.",
+  "license": "MIT",
+  "keywords": [
+    "modx"
+  ],
+  "require": {
+    "php": ">=5.6",
+    "slim/slim": "^3.9.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "LCI\\ModxSlim\\": "src/"
+    }
+  }
+}
