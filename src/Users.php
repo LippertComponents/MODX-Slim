@@ -6,15 +6,14 @@
  * Time: 12:32 PM
  */
 
-namespace LCI\ModxSlim;
+namespace LCI\MODX\Slim;
 
-use \LCI\ModxSlim\Helpers\ResponseHelper;
+use \LCI\MODX\Slim\Helpers\ResponseHelper;
 use \Psr\Container\ContainerInterface;
 use \Slim\Http\Request;
 use \Slim\Http\Response;
 use \Psr\Container\NotFoundExceptionInterface;
 use \Psr\Container\ContainerExceptionInterface;
-
 
 class Users
 {

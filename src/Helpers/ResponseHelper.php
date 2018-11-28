@@ -6,11 +6,10 @@
  * Time: 9:07 AM
  */
 
-namespace LCI\ModxSlim\Helpers;
+namespace LCI\MODX\Slim\Helpers;
 
 use \Slim\Http\Request;
 use \Slim\Http\Response;
-
 
 trait ResponseHelper
 {
