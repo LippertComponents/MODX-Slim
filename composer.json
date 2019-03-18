@@ -9,7 +9,7 @@
     "php": ">=7.1",
     "ext-json": "*",
     "slim/slim": "^3.11.0",
-    "lci/orchestrator": "^1.0.0"
+    "lci/orchestrator": "^1.2.0"
   },
   "autoload": {
     "psr-4": {

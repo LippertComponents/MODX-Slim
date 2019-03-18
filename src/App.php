@@ -15,8 +15,17 @@ use Slim\App as SlimApp;
 
 class App
 {
+    /** @deprecated  */
     const PACKAGES_FILE = __DIR__ . DIRECTORY_SEPARATOR . 'cache' . DIRECTORY_SEPARATOR . 'package.php';
     // routerCacheFile
+
+    /** @var array  */
+    protected static $config = [
+        'packages_file' => __DIR__ . DIRECTORY_SEPARATOR . 'cache' . DIRECTORY_SEPARATOR . 'package.php'
+    ];
+
+    /** @var Console */
+    protected $console;
 
     /** @var array */
     protected $packages = [];
@@ -44,6 +53,9 @@ class App
      */
     public function __construct()
     {
+        /** @var Console $console */
+        $this->console = new Console();
+
         $this->loadPackages();
     }
 
@@ -58,9 +70,7 @@ class App
         /** @var \Slim\App $slim */
         $slim = new SlimApp($this->settings);
 
-        /** @var Console $console */
-        $console = new Console();
-        $this->modx = $console->loadMODX();
+        $this->modx = $this->console->loadMODX();
 
         /** @var \Slim\Container $container */
         $container = $slim->getContainer();
@@ -81,7 +91,7 @@ class App
         if (!in_array($class, $this->packages) && is_a($class, 'LCI\MODX\Slim\Helpers\Package', true)) {
             $this->packages[] = $class;
 
-            $this->writeCacheFile(static::PACKAGES_FILE, $this->packages);
+            $this->writeCacheFile(static::$config['packages_file'], $this->packages);
         }
     }
 
@@ -100,7 +110,7 @@ class App
                 }
             }
 
-            $this->writeCacheFile(static::PACKAGES_FILE, $this->packages);
+            $this->writeCacheFile(static::$config['packages_file'], $this->packages);
         }
     }
 
@@ -109,8 +119,9 @@ class App
      */
     protected function loadPackages()
     {
-        if (file_exists(static::PACKAGES_FILE)) {
-            $this->packages = include static::PACKAGES_FILE;
+        static::$config['packages_file'] = $this->console->getConfigFilePaths()['config_dir'].'lci_modx_slim_package.php';
+        if (file_exists(static::$config['packages_file'])) {
+            $this->packages = include static::$config['packages_file'];
         }
 
         return $this;

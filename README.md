@@ -71,3 +71,25 @@ $app->get('/resource/{id}', \My\Namespace\Resources::class .':getResource');
 Note to get the passed ```{id}``` use something like ```$id = $request->getAttribute('id');``` in your getResource method.
 - Now test it! I use [Postman](https://www.getpostman.com/) to do initial testing. Just add in the url like so: 
 https://myWebsite.com/rest/v1/resource/2 and review.
+
+## Updating
+
+The location of the package configuration has changed from v0.2.1 to v0.3.0, it has moved from 
+`core/vendor/lci/modx-slim/src/cache/package.php` to `core/config/lci_modx_slim_package.php`. 
+Manually copy before running composer update.
+ 
+If the `core/vendor/lci/modx-slim/src/cache/package.php` file got deleted and you don't have a backup then 
+do a search in core/vendor/lci directory for all files with: `->registerPackage(` and put all of the classes 
+into the array like below.
+
+The contents of the config file `core/config/lci_modx_slim_package.php` file will look similar to the code below.
+*Note: prior to v0.3 the config file was in this path `core/vendor/lci/modx-slim/src/cache/package.php`*
+
+```php
+<?php 
+return array (
+  0 => 'LCI\\MODX\\DealerLocator\\Slim\\DealerLocatorPackage',
+  1 => 'LCI\\MODX\\SalsifyGallery\\Slim\\SalsifyGalleryPackage',
+);
+
+```
