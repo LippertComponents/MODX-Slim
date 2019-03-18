@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.3.0] - 2019-03-18
 
 ### Changed
-- The location of the package configuration has changed from 
+- Fix #1 the location of the package configuration has changed from 
 `core/vendor/lci/modx-slim/src/cache/package.php` to `core/config/lci_modx_slim_package.php`. 
 Manually copy before running composer update.
 
@@ -27,7 +27,9 @@ Manually copy before running composer update.
 
 Initial release 
 
-[Unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.0.0...HEAD
-[0.3.0]: https://github.com/olivierlacan/keep-a-changelog/compare/v0.2.0...v0.3.0
-[0.0.1]: https://github.com/olivierlacan/keep-a-changelog/releases/tag/v0.0.1
+[Unreleased]: https://github.com/LippertComponents/MODX-Slim/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/LippertComponents/MODX-Slim/compare/v0.2.0...v0.3.0
+[0.2.1]: https://github.com/LippertComponents/MODX-Slim/compare/v0.2.0...v0.2.1
+[0.2.0]: https://github.com/LippertComponents/MODX-Slim/compare/v0.1.0...v0.2.0
+[0.1.0]: https://github.com/LippertComponents/MODX-Slim/releases/tag/v0.1.0
 
