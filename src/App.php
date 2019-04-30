@@ -67,10 +67,13 @@ class App
     {
         $this->loadPackageSettings();
 
+        $this->modx = $this->console->loadMODX();
+
+        $this->settings['env'] = $this->console->getConfig();
+
         /** @var \Slim\App $slim */
         $slim = new SlimApp($this->settings);
 
-        $this->modx = $this->console->loadMODX();
 
         /** @var \Slim\Container $container */
         $container = $slim->getContainer();
