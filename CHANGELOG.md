@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.4] - 2019-05-23
+### Changed
+- Do not allow an empty limit if in PaginationHelper when $this->allow_no_limit = false.  Set a default limit if limit is set to 0
+
 ## [0.3.3] - 2019-05-23
 ### Changed
 - Fixed division by zero in the PaginationHelper when $this->allow_no_limit = true and limit is set to 0

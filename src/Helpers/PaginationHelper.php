@@ -122,6 +122,10 @@ trait PaginationHelper
 
         $total = $this->modx->getCount($query->getClass(), $query);
 
+        if (!$this->allow_no_limit && empty($this->getLimit())) {
+            $this->setLimit(25);
+        }
+
         $total_pages = 1;
         if ($this->getLimit() > 0) {
             $total_pages = ceil($total / $this->getLimit());
