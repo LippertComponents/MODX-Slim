@@ -8,6 +8,9 @@ namespace LCI\MODX\Slim\Helpers;
 
 trait PaginationHelper
 {
+    /** @var bool  */
+    protected $allow_no_limit = false;
+
     /** @var int  */
     protected $page = 1;
 
@@ -126,7 +129,11 @@ trait PaginationHelper
             'limit' => $this->getLimit()
         ];
 
-        $query->limit($this->getLimit(), ($offset < 0 ? 0 : $offset * $this->getLimit()) );
+        if ($this->allow_no_limit && empty($this->getLimit())) {
+            // no limit to be set
+        } else {
+            $query->limit($this->getLimit(), ($offset < 0 ? 0 : $offset * $this->getLimit()));
+        }
 
         return $query;
     }
